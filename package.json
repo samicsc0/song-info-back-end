@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky",
-    "dev":"nodemon index.ts",
-    "build":"tsc -b",
+    "dev": "nodemon index.ts",
+    "build": "tsc -b",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\""
   },
@@ -29,7 +29,9 @@
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.0.0",
     "nodemon": "^3.1.11",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.15.0",
+    "prettier": "3.3.3"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
