@@ -19,6 +19,10 @@ const songSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    secure_url: {
+        type: String,
+        required: true,
+    },
 }, {
     timestamps: true,
 });
