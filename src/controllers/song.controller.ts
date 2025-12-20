@@ -13,6 +13,17 @@ const getAllSongs = AsyncErrorHandler(async (_req: Request, res: Response) => {
   };
   res.status(201).json(response);
 });
+const getSongById = AsyncErrorHandler(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const song = await Song.findById(id);
+  const response: ApiSuccess<typeof song> = {
+    data: song,
+    message: "Song fetched successfully",
+    status: "Success",
+    statusCode: 200,
+  };
+  res.status(200).json(response);
+});
 const createSong = AsyncErrorHandler(async (req: Request, res: Response) => {
   const song = await Song.create(req.body);
   const response: ApiSuccess<typeof song> = {
@@ -73,4 +84,11 @@ const deleteMultipleSong = () => {
     res.status(200).json(response);
   });
 };
-export { getAllSongs, createSong, updateSong, deleteSong, deleteMultipleSong };
+export {
+  getAllSongs,
+  getSongById,
+  createSong,
+  updateSong,
+  deleteSong,
+  deleteMultipleSong,
+};
