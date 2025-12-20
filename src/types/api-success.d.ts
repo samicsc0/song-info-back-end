@@ -2,7 +2,7 @@ interface ApiSuccess<T> {
   status: "Success" | "Fail";
   statusCode: number;
   message: string;
-  data: T;
+  data?: T;
   page?: number;
   totalData?: number;
 }

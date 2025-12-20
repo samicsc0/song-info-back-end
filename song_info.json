@@ -1,0 +1,1128 @@
+{
+  "info": {
+    "name": "song_info",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "create song",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{local_url}}song",
+          "protocol": "",
+          "host": [
+            "{{local_url}}song"
+          ],
+          "path": [],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"title\": \"Rolling in the Deep\",\n    \"artist\": \"Adele\",\n    \"album\": \"21\",\n    \"genre\": \"Pop\",\n    \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Requirement Failed",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [],
+              "query": [],
+              "variable": []
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "256",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"100-S7xq1oJaDoCCf2dy3BCESn4z29c\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 10:52:47 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errorCode\": 500,\n  \"status\": \"Error\",\n  \"errorMessage\": \"Song validation failed: secure_url: Path `secure_url` is required., genre: Path `genre` is required., album: Path `album` is required., artist: Path `artist` is required., title: Path `title` is required.\"\n}",
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Blinding Lights\",\n  \"artist\": \"The Weeknd\",\n  \"album\": \"After Hours\",\n  \"genre\": \"Synth-pop\",\n  \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/c/c1/The_Weeknd_-_After_Hours.png\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "384",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"180-t+EIXsvLpq0LFlzXFkLnplN5biw\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 10:56:44 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": {\n    \"title\": \"Blinding Lights\",\n    \"artist\": \"The Weeknd\",\n    \"album\": \"After Hours\",\n    \"genre\": \"Synth-pop\",\n    \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/c/c1/The_Weeknd_-_After_Hours.png\",\n    \"_id\": \"694680ec552160a3e8cc15c0\",\n    \"createdAt\": \"2025-12-20T10:56:44.551Z\",\n    \"updatedAt\": \"2025-12-20T10:56:44.551Z\",\n    \"__v\": 0\n  },\n  \"message\": \"Song created successfully\",\n  \"status\": \"Success\",\n  \"statusCode\": 201\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "Get all songs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{local_url}}song",
+          "protocol": "",
+          "host": [
+            "{{local_url}}song"
+          ],
+          "path": [],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [
+        {
+          "name": "Success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [],
+              "query": [],
+              "variable": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "2406",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"966-2xbLsu3uvfgztecjBcLBp88tigU\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 11:09:27 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": [\n    {\n      \"_id\": \"694680ec552160a3e8cc15c0\",\n      \"title\": \"Blinding Lights\",\n      \"artist\": \"The Weeknd\",\n      \"album\": \"After Hours\",\n      \"genre\": \"Synth-pop\",\n      \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/c/c1/The_Weeknd_-_After_Hours.png\",\n      \"createdAt\": \"2025-12-20T10:56:44.551Z\",\n      \"updatedAt\": \"2025-12-20T10:56:44.551Z\",\n      \"__v\": 0\n    },\n    {\n      \"_id\": \"694681a0552160a3e8cc15c2\",\n      \"title\": \"Shape of You\",\n      \"artist\": \"Ed Sheeran\",\n      \"album\": \"÷ (Divide)\",\n      \"genre\": \"Pop\",\n      \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/4/45/Divide_cover.png\",\n      \"createdAt\": \"2025-12-20T10:59:44.232Z\",\n      \"updatedAt\": \"2025-12-20T10:59:44.232Z\",\n      \"__v\": 0\n    },\n    {\n      \"_id\": \"694681cf552160a3e8cc15c4\",\n      \"title\": \"Someone Like You\",\n      \"artist\": \"Adele\",\n      \"album\": \"21\",\n      \"genre\": \"Soul\",\n      \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png\",\n      \"createdAt\": \"2025-12-20T11:00:31.442Z\",\n      \"updatedAt\": \"2025-12-20T11:00:31.442Z\",\n      \"__v\": 0\n    },\n    {\n      \"_id\": \"694681ee552160a3e8cc15c6\",\n      \"title\": \"HUMBLE.\",\n      \"artist\": \"Kendrick Lamar\",\n      \"album\": \"DAMN.\",\n      \"genre\": \"Hip-Hop\",\n      \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/5/51/Kendrick_Lamar_-_Damn.png\",\n      \"createdAt\": \"2025-12-20T11:01:02.191Z\",\n      \"updatedAt\": \"2025-12-20T11:01:02.191Z\",\n      \"__v\": 0\n    },\n    {\n      \"_id\": \"69468216552160a3e8cc15c8\",\n      \"title\": \"Billie Jean\",\n      \"artist\": \"Michael Jackson\",\n      \"album\": \"Thriller\",\n      \"genre\": \"Pop\",\n      \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png\",\n      \"createdAt\": \"2025-12-20T11:01:42.741Z\",\n      \"updatedAt\": \"2025-12-20T11:01:42.741Z\",\n      \"__v\": 0\n    },\n    {\n      \"_id\": \"69468236552160a3e8cc15ca\",\n      \"title\": \"Smells Like Teen Spirit\",\n      \"artist\": \"Nirvana\",\n      \"album\": \"Nevermind\",\n      \"genre\": \"Grunge\",\n      \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg\",\n      \"createdAt\": \"2025-12-20T11:02:14.596Z\",\n      \"updatedAt\": \"2025-12-20T11:02:14.596Z\",\n      \"__v\": 0\n    },\n    {\n      \"_id\": \"6946825b552160a3e8cc15cc\",\n      \"title\": \"Imagine\",\n      \"artist\": \"John Lennon\",\n      \"album\": \"Imagine\",\n      \"genre\": \"Rock\",\n      \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/2/25/John_Lennon_-_Imagine_John_Lennon.jpg\",\n      \"createdAt\": \"2025-12-20T11:02:51.396Z\",\n      \"updatedAt\": \"2025-12-20T11:02:51.396Z\",\n      \"__v\": 0\n    },\n    {\n      \"_id\": \"6946828a552160a3e8cc15ce\",\n      \"title\": \"Rolling in the Deep\",\n      \"artist\": \"Adele\",\n      \"album\": \"21\",\n      \"genre\": \"Pop\",\n      \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png\",\n      \"createdAt\": \"2025-12-20T11:03:38.031Z\",\n      \"updatedAt\": \"2025-12-20T11:03:38.031Z\",\n      \"__v\": 0\n    }\n  ],\n  \"message\": \"Songs fetched successfully\",\n  \"status\": \"Success\",\n  \"statusCode\": 200,\n  \"totalData\": 8\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "Get song by Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{local_url}}song/6946825b552160a3e8cc15cd",
+          "protocol": "",
+          "host": [
+            "{{local_url}}song"
+          ],
+          "path": [
+            "6946825b552160a3e8cc15cd"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [
+        {
+          "name": "Success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song/6946825b552160a3e8cc15cc",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [
+                "6946825b552160a3e8cc15cc"
+              ],
+              "query": [],
+              "variable": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "377",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"179-XVFzUhx2c20UhnqM6mqBUiCrxZg\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 11:11:29 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": {\n    \"_id\": \"6946825b552160a3e8cc15cc\",\n    \"title\": \"Imagine\",\n    \"artist\": \"John Lennon\",\n    \"album\": \"Imagine\",\n    \"genre\": \"Rock\",\n    \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/2/25/John_Lennon_-_Imagine_John_Lennon.jpg\",\n    \"createdAt\": \"2025-12-20T11:02:51.396Z\",\n    \"updatedAt\": \"2025-12-20T11:02:51.396Z\",\n    \"__v\": 0\n  },\n  \"message\": \"Song fetched successfully\",\n  \"status\": \"Success\",\n  \"statusCode\": 200\n}",
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Not found",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song/6946825b552160a3e8cc15cd",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [
+                "6946825b552160a3e8cc15cd"
+              ],
+              "query": [],
+              "variable": []
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "86",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"56-9TnQkFQy37TI3e8/s+ChDuxNcGg\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 11:13:51 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errorCode\": 404,\n  \"status\": \"Fail\",\n  \"errorMessage\": \"Song not found\",\n  \"isOperational\": true\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "Update Song",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{local_url}}song/69468236552160a3e8cc15ca",
+          "protocol": "",
+          "host": [
+            "{{local_url}}song"
+          ],
+          "path": [
+            "69468236552160a3e8cc15ca"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"genre\":\"Rock\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Song not found",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song/69468236552160a3e8cc15cb",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [
+                "69468236552160a3e8cc15cb"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\":\"hello\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "86",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"56-9TnQkFQy37TI3e8/s+ChDuxNcGg\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 11:32:14 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errorCode\": 404,\n  \"status\": \"Fail\",\n  \"errorMessage\": \"Song not found\",\n  \"isOperational\": true\n}",
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Success",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song/69468236552160a3e8cc15ca",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [
+                "69468236552160a3e8cc15ca"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"genre\":\"Rock\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "384",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"180-FgMtv1UyZU6u2IdnYctC8Zotc3g\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 11:35:05 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": {\n    \"_id\": \"69468236552160a3e8cc15ca\",\n    \"title\": \"Smells Like Teen Spirit\",\n    \"artist\": \"Nirvana\",\n    \"album\": \"Nevermind\",\n    \"genre\": \"Rock\",\n    \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg\",\n    \"createdAt\": \"2025-12-20T11:02:14.596Z\",\n    \"updatedAt\": \"2025-12-20T11:35:05.139Z\",\n    \"__v\": 0\n  },\n  \"message\": \"Song updated successfully\",\n  \"status\": \"Success\",\n  \"statusCode\": 200\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "Delete Song",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{local_url}}song/694681cf552160a3e8cc15c4",
+          "protocol": "",
+          "host": [
+            "{{local_url}}song"
+          ],
+          "path": [
+            "694681cf552160a3e8cc15c4"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [
+        {
+          "name": "Not Found",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song/694681cf552160a3e8cc15c5",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [
+                "694681cf552160a3e8cc15c5"
+              ],
+              "query": [],
+              "variable": []
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "86",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"56-9TnQkFQy37TI3e8/s+ChDuxNcGg\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 11:38:39 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errorCode\": 404,\n  \"status\": \"Fail\",\n  \"errorMessage\": \"Song not found\",\n  \"isOperational\": true\n}",
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Success",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song/694681cf552160a3e8cc15c4",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [
+                "694681cf552160a3e8cc15c4"
+              ],
+              "query": [],
+              "variable": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "352",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"160-aHMKmPciA12DGp4VHg7AL7lOlGI\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 11:39:32 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": {\n    \"_id\": \"694681cf552160a3e8cc15c4\",\n    \"title\": \"Someone Like You\",\n    \"artist\": \"Adele\",\n    \"album\": \"21\",\n    \"genre\": \"Soul\",\n    \"secure_url\": \"https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png\",\n    \"createdAt\": \"2025-12-20T11:00:31.442Z\",\n    \"updatedAt\": \"2025-12-20T11:00:31.442Z\",\n    \"__v\": 0\n  },\n  \"message\": \"Song deleted successfully\",\n  \"status\": \"Success\",\n  \"statusCode\": 204\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "Delete Multiple Song",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{local_url}}song",
+          "protocol": "",
+          "host": [
+            "{{local_url}}song"
+          ],
+          "path": [],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\":[\"694680ec552160a3e8cc15c1\",\"694681a0552160a3e8cc15c1\"]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Incorrect body format",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\":\"694681cf552160a3e8cc15c4\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "107",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"6b-S8bRPgzxAkOIgyEjHe83LMTr0Q4\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 11:57:45 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errorCode\": 400,\n  \"status\": \"Fail\",\n  \"errorMessage\": \"Please provide an array of song IDs\",\n  \"isOperational\": true\n}",
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Success",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\":[\"694680ec552160a3e8cc15c0\",\"694681a0552160a3e8cc15c2\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "126",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"7e-uA72NbzObDRcS0g2ALUDybP1B+g\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 11:58:23 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": {\n    \"acknowledged\": true,\n    \"deletedCount\": 2\n  },\n  \"message\": \"2 song(s) deleted successfully\",\n  \"status\": \"Success\",\n  \"statusCode\": 200\n}",
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Not Found",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{local_url}}song",
+              "protocol": "",
+              "host": [
+                "{{local_url}}song"
+              ],
+              "path": [],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\":[\"694680ec552160a3e8cc15c1\",\"694681a0552160a3e8cc15c1\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "96",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"60-Df94K6fCiP9K9BlkxTGIs1122eE\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 20 Dec 2025 12:00:08 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"errorCode\": 404,\n  \"status\": \"Fail\",\n  \"errorMessage\": \"No songs found to delete\",\n  \"isOperational\": true\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "local_url",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

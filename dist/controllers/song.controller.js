@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteMultipleSong = exports.deleteSong = exports.updateSong = exports.createSong = exports.getAllSongs = void 0;
+exports.deleteMultipleSong = exports.deleteSong = exports.updateSong = exports.createSong = exports.getSongById = exports.getAllSongs = void 0;
 const utils_1 = require("../utils");
 const models_1 = require("../models");
 const getAllSongs = (0, utils_1.AsyncErrorHandler)(async (_req, res) => {
@@ -14,6 +14,18 @@ const getAllSongs = (0, utils_1.AsyncErrorHandler)(async (_req, res) => {
     res.status(201).json(response);
 });
 exports.getAllSongs = getAllSongs;
+const getSongById = (0, utils_1.AsyncErrorHandler)(async (req, res) => {
+    const { id } = req.params;
+    const song = await models_1.Song.findById(id);
+    const response = {
+        data: song,
+        message: "Song fetched successfully",
+        status: "Success",
+        statusCode: 200,
+    };
+    res.status(200).json(response);
+});
+exports.getSongById = getSongById;
 const createSong = (0, utils_1.AsyncErrorHandler)(async (req, res) => {
     const song = await models_1.Song.create(req.body);
     const response = {

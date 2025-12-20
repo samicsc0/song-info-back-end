@@ -10,19 +10,24 @@ const getAllSongs = AsyncErrorHandler(async (_req: Request, res: Response) => {
     message: "Songs fetched successfully",
     status: "Success",
     statusCode: 200,
+    totalData: songs.length,
   };
-  res.status(201).json(response);
+  res.status(200).json(response);
 });
 const getSongById = AsyncErrorHandler(async (req: Request, res: Response) => {
   const { id } = req.params;
   const song = await Song.findById(id);
-  const response: ApiSuccess<typeof song> = {
-    data: song,
-    message: "Song fetched successfully",
-    status: "Success",
-    statusCode: 200,
-  };
-  res.status(200).json(response);
+  if (song) {
+    const response: ApiSuccess<typeof song> = {
+      data: song,
+      message: "Song fetched successfully",
+      status: "Success",
+      statusCode: 200,
+    };
+    res.status(200).json(response);
+  }
+  const customError = new CustomError("Song not found", 404);
+  throw customError;
 });
 const createSong = AsyncErrorHandler(async (req: Request, res: Response) => {
   const song = await Song.create(req.body);
@@ -43,14 +48,15 @@ const updateSong = AsyncErrorHandler(async (req: Request, res: Response) => {
   if (!song) {
     const error = new CustomError("Song not found", 404);
     throw error;
+  } else {
+    const response: ApiSuccess<typeof song> = {
+      data: song,
+      message: "Song updated successfully",
+      status: "Success",
+      statusCode: 200,
+    };
+    res.status(200).json(response);
   }
-  const response: ApiSuccess<typeof song> = {
-    data: song,
-    message: "Song updated successfully",
-    status: "Success",
-    statusCode: 200,
-  };
-  res.status(200).json(response);
 });
 const deleteSong = AsyncErrorHandler(async (req: Request, res: Response) => {
   const { id } = req.params;
@@ -60,30 +66,34 @@ const deleteSong = AsyncErrorHandler(async (req: Request, res: Response) => {
     throw error;
   }
   const response: ApiSuccess<typeof song> = {
-    data: song,
+    // data: song,
     message: "Song deleted successfully",
     status: "Success",
     statusCode: 204,
   };
-  res.status(200).json(response);
+  res.status(204).json(response);
 });
-const deleteMultipleSong = () => {
-  AsyncErrorHandler(async (req: Request, res: Response) => {
+const deleteMultipleSong = AsyncErrorHandler(
+  async (req: Request, res: Response) => {
     const { id } = req.body;
-    const song = await Song.deleteMany(id);
-    if (!song) {
-      const error = new CustomError("Song not found", 404);
+    if (!id || !Array.isArray(id) || id.length === 0) {
+      const error = new CustomError("Please provide an array of song IDs", 400);
       throw error;
     }
-    const response: ApiSuccess<typeof song> = {
-      data: song,
-      message: "Song deleted successfully",
+    const result = await Song.deleteMany({ _id: { $in: id } });
+    if (result.deletedCount === 0) {
+      const error = new CustomError("No songs found to delete", 404);
+      throw error;
+    }
+    const response: ApiSuccess<typeof result> = {
+      data: result,
+      message: `${result.deletedCount} song(s) deleted successfully`,
       status: "Success",
-      statusCode: 204,
+      statusCode: 200,
     };
     res.status(200).json(response);
-  });
-};
+  }
+);
 export {
   getAllSongs,
   getSongById,
