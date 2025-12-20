@@ -1,4 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-console.log("hello");
-//# sourceMappingURL=index.js.map
+const db_1 = require("./config/db");
+(0, db_1.db)().then(() => {
+    console.log("hello");
+});

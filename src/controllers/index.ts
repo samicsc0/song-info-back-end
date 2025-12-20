@@ -1,0 +1,2 @@
+import * as SongController from "./song.controller";
+export { SongController };
