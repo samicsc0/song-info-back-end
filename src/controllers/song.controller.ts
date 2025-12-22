@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { AsyncErrorHandler, CustomError } from "../utils";
 import { Song } from "../models";
-import { ApiSuccess } from "../types";
+import { ApiSuccess, StatResponse } from "../types";
 
 const getAllSongs = AsyncErrorHandler(async (_req: Request, res: Response) => {
   const songs = await Song.find();
@@ -94,6 +94,25 @@ const deleteMultipleSong = AsyncErrorHandler(
     res.status(200).json(response);
   }
 );
+const songStat = AsyncErrorHandler(async (req: Request, res: Response) => {
+  const totalSongs = await Song.countDocuments();
+  const totalGenre = await (await Song.distinct("genre")).length;
+  const totalAlbum = await (await Song.distinct("album")).length;
+  const totalArtist = await (await Song.distinct("artist")).length;
+
+  const response: ApiSuccess<StatResponse> = {
+    data: {
+      totalAlbums: totalAlbum,
+      totalArtists: totalArtist,
+      totalSongs: totalSongs,
+      totalGenres: totalGenre,
+    },
+    status: "Success",
+    statusCode: 200,
+    message: "Stats fetched successfully",
+  };
+  res.status(200).json(response);
+});
 export {
   getAllSongs,
   getSongById,
@@ -101,4 +120,5 @@ export {
   updateSong,
   deleteSong,
   deleteMultipleSong,
+  songStat,
 };
