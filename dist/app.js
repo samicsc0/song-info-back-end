@@ -5,7 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const routes_1 = require("./routes");
+const middlewares_1 = require("./middlewares");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use("/api/songs", routes_1.songRouter);
+app.use("/api/song", routes_1.songRouter);
+app.use(middlewares_1.GlobalErrorHandlerMiddleware);
 exports.default = app;
