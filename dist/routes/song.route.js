@@ -5,6 +5,7 @@ const song_controller_1 = require("../controllers/song.controller");
 const router = (0, express_1.Router)();
 router.post("/", song_controller_1.createSong);
 router.get("/", song_controller_1.getAllSongs);
+router.get("/stat", song_controller_1.songStat);
 router.get("/:id", song_controller_1.getSongById);
 router.patch("/:id", song_controller_1.updateSong);
 router.delete("/", song_controller_1.deleteMultipleSong);

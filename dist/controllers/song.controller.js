@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteMultipleSong = exports.deleteSong = exports.updateSong = exports.createSong = exports.getSongById = exports.getAllSongs = void 0;
+exports.songStat = exports.deleteMultipleSong = exports.deleteSong = exports.updateSong = exports.createSong = exports.getSongById = exports.getAllSongs = void 0;
 const utils_1 = require("../utils");
 const models_1 = require("../models");
 const getAllSongs = (0, utils_1.AsyncErrorHandler)(async (_req, res) => {
@@ -99,3 +99,22 @@ const deleteMultipleSong = (0, utils_1.AsyncErrorHandler)(async (req, res) => {
     res.status(200).json(response);
 });
 exports.deleteMultipleSong = deleteMultipleSong;
+const songStat = (0, utils_1.AsyncErrorHandler)(async (req, res) => {
+    const totalSongs = await models_1.Song.countDocuments();
+    const totalGenre = await (await models_1.Song.distinct("genre")).length;
+    const totalAlbum = await (await models_1.Song.distinct("album")).length;
+    const totalArtist = await (await models_1.Song.distinct("artist")).length;
+    const response = {
+        data: {
+            totalAlbums: totalAlbum,
+            totalArtists: totalArtist,
+            totalSongs: totalSongs,
+            totalGenres: totalGenre,
+        },
+        status: "Success",
+        statusCode: 200,
+        message: "Stats fetched successfully",
+    };
+    res.status(200).json(response);
+});
+exports.songStat = songStat;

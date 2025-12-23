@@ -39,6 +39,18 @@ const createSong = AsyncErrorHandler(async (req: Request, res: Response) => {
   };
   res.status(201).json(response);
 });
+const createBulkSong = AsyncErrorHandler(
+  async (req: Request, res: Response) => {
+    const song = await Song.insertMany(req.body.list);
+    const response: ApiSuccess<typeof song> = {
+      data: song,
+      message: "Song created successfully",
+      status: "Success",
+      statusCode: 201,
+    };
+    res.status(201).json(response);
+  }
+);
 const updateSong = AsyncErrorHandler(async (req: Request, res: Response) => {
   const { id } = req.params;
   const song = await Song.findByIdAndUpdate(id, req.body, {
@@ -121,4 +133,5 @@ export {
   deleteSong,
   deleteMultipleSong,
   songStat,
+  createBulkSong,
 };
