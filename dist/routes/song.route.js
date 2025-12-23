@@ -4,6 +4,7 @@ const express_1 = require("express");
 const song_controller_1 = require("../controllers/song.controller");
 const router = (0, express_1.Router)();
 router.post("/", song_controller_1.createSong);
+router.post("/bulk", song_controller_1.createBulkSong);
 router.get("/", song_controller_1.getAllSongs);
 router.get("/stat", song_controller_1.songStat);
 router.get("/:id", song_controller_1.getSongById);

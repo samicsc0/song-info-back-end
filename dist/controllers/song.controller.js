@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.songStat = exports.deleteMultipleSong = exports.deleteSong = exports.updateSong = exports.createSong = exports.getSongById = exports.getAllSongs = void 0;
+exports.createBulkSong = exports.songStat = exports.deleteMultipleSong = exports.deleteSong = exports.updateSong = exports.createSong = exports.getSongById = exports.getAllSongs = void 0;
 const utils_1 = require("../utils");
 const models_1 = require("../models");
 const getAllSongs = (0, utils_1.AsyncErrorHandler)(async (_req, res) => {
@@ -42,6 +42,17 @@ const createSong = (0, utils_1.AsyncErrorHandler)(async (req, res) => {
     res.status(201).json(response);
 });
 exports.createSong = createSong;
+const createBulkSong = (0, utils_1.AsyncErrorHandler)(async (req, res) => {
+    const song = await models_1.Song.insertMany(req.body.list);
+    const response = {
+        data: song,
+        message: "Song created successfully",
+        status: "Success",
+        statusCode: 201,
+    };
+    res.status(201).json(response);
+});
+exports.createBulkSong = createBulkSong;
 const updateSong = (0, utils_1.AsyncErrorHandler)(async (req, res) => {
     const { id } = req.params;
     const song = await models_1.Song.findByIdAndUpdate(id, req.body, {
